@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.clients;
 
 import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;

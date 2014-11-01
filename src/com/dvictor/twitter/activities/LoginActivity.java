@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.codepath.oauth.OAuthLoginActivity;
+import com.dvictor.twitter.R;
+import com.dvictor.twitter.R.layout;
+import com.dvictor.twitter.R.menu;
+import com.dvictor.twitter.clients.TwitterClient;
 
 public class LoginActivity extends OAuthLoginActivity<TwitterClient> {
 

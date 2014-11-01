@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.adapters;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dvictor.twitter.R;
+import com.dvictor.twitter.R.id;
+import com.dvictor.twitter.R.layout;
 import com.dvictor.twitter.models.Tweet;
 import com.nostra13.universalimageloader.core.ImageLoader;
 

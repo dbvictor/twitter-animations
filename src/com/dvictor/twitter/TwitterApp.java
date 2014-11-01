@@ -3,6 +3,7 @@ package com.dvictor.twitter;
 import android.content.Context;
 import android.util.Log;
 
+import com.dvictor.twitter.clients.TwitterClient;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;

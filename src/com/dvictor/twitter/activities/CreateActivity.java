@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.activities;
 
 import org.json.JSONObject;
 
@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dvictor.twitter.R;
+import com.dvictor.twitter.TwitterApp;
+import com.dvictor.twitter.R.id;
+import com.dvictor.twitter.R.layout;
+import com.dvictor.twitter.clients.TwitterClient;
 import com.dvictor.twitter.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -73,6 +78,7 @@ public class CreateActivity extends Activity {
 					i.putExtra("tweet", tweet);
 					setResult(RESULT_OK, i);
 					finish();
+					overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
 				}
 				@Override
 				public void onFailure(Throwable e, String s) {
@@ -84,4 +90,12 @@ public class CreateActivity extends Activity {
 			});
 		}
 	}
+	
+	/** Override the back button behavior to save as well. */
+	@Override
+	public void onBackPressed(){
+		finish();
+		overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
+	}	
+	
 }

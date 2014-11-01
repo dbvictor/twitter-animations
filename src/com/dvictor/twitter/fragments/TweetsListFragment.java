@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.dvictor.twitter.EndlessScrollListener;
 import com.dvictor.twitter.R;
-import com.dvictor.twitter.TweetArrayAdapter;
 import com.dvictor.twitter.TwitterApp;
-import com.dvictor.twitter.TwitterClient;
+import com.dvictor.twitter.adapters.TweetArrayAdapter;
+import com.dvictor.twitter.clients.TwitterClient;
+import com.dvictor.twitter.listeners.EndlessScrollListener;
 import com.dvictor.twitter.models.Tweet;
 import com.dvictor.twitter.util.InternetStatus;
 import com.loopj.android.http.AsyncHttpResponseHandler;

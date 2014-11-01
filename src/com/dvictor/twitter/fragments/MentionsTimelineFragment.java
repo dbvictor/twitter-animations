@@ -5,7 +5,7 @@ import java.util.List;
 import android.os.Bundle;
 
 import com.dvictor.twitter.TwitterApp;
-import com.dvictor.twitter.TwitterClient;
+import com.dvictor.twitter.clients.TwitterClient;
 import com.dvictor.twitter.models.Tweet;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 

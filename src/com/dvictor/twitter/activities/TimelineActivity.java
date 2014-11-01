@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.activities;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -10,6 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dvictor.twitter.R;
+import com.dvictor.twitter.R.drawable;
+import com.dvictor.twitter.R.id;
+import com.dvictor.twitter.R.layout;
+import com.dvictor.twitter.R.menu;
 import com.dvictor.twitter.fragments.HomeTimelineFragment;
 import com.dvictor.twitter.fragments.MentionsTimelineFragment;
 import com.dvictor.twitter.fragments.TweetsListFragment;
@@ -104,6 +109,7 @@ public class TimelineActivity extends FragmentActivity {
 			Intent i = new Intent(this,CreateActivity.class);
 			//no args: i.putExtra("settings", searchFilters);
 			startActivityForResult(i, ACTIVITY_CREATE);
+			overridePendingTransition(R.anim.in_from_top, R.anim.out_to_bottom);
 		}
 	}
 
@@ -112,6 +118,7 @@ public class TimelineActivity extends FragmentActivity {
 		Intent i = new Intent(this,ProfileActivity.class);
 		//no args: i.putExtra("settings", searchFilters);
 		startActivityForResult(i, ACTIVITY_PROFILE);
+		overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
 	}
 	
 	public void onProfileClick(View v){
@@ -124,6 +131,7 @@ public class TimelineActivity extends FragmentActivity {
 		Intent i = new Intent(this,ProfileActivity.class);
 		i.putExtra("user", u);
 		startActivityForResult(i, ACTIVITY_PROFILE);
+		overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
 	}
 
     @Override

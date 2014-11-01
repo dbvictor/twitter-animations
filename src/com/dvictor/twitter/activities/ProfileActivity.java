@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.activities;
 
 import org.json.JSONObject;
 
@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dvictor.twitter.R;
+import com.dvictor.twitter.TwitterApp;
+import com.dvictor.twitter.R.id;
+import com.dvictor.twitter.R.layout;
 import com.dvictor.twitter.fragments.UserTimelineFragment;
 import com.dvictor.twitter.models.User;
 import com.dvictor.twitter.util.InternetStatus;
@@ -110,5 +114,12 @@ public class ProfileActivity extends FragmentActivity {
 	public void onProfileClick(View v){
 		// Do nothing.  These are only the images of the profile they are already viewing.  No need to re-show the same activity.
 	}
+	
+	/** Override the back button behavior to save as well. */
+	@Override
+	public void onBackPressed(){
+		finish();
+		overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+	}	
 	
 }

@@ -1,4 +1,4 @@
-package com.dvictor.twitter;
+package com.dvictor.twitter.listeners;
 
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
