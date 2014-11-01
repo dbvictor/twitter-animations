@@ -78,7 +78,7 @@ public class CreateActivity extends Activity {
 					i.putExtra("tweet", tweet);
 					setResult(RESULT_OK, i);
 					finish();
-					overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
+					overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_out_to_top);
 				}
 				@Override
 				public void onFailure(Throwable e, String s) {
@@ -91,11 +91,11 @@ public class CreateActivity extends Activity {
 		}
 	}
 	
-	/** Override the back button behavior to save as well. */
+	/** Override the back button behavior to override default animation. */
 	@Override
 	public void onBackPressed(){
 		finish();
-		overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
+		overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_out_to_top);
 	}	
 	
 }

@@ -115,11 +115,11 @@ public class ProfileActivity extends FragmentActivity {
 		// Do nothing.  These are only the images of the profile they are already viewing.  No need to re-show the same activity.
 	}
 	
-	/** Override the back button behavior to save as well. */
+	/** Override the back button behavior to add custom animation. */
 	@Override
 	public void onBackPressed(){
 		finish();
-		overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+		overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
 	}	
 	
 }

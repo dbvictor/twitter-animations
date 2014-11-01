@@ -109,7 +109,7 @@ public class TimelineActivity extends FragmentActivity {
 			Intent i = new Intent(this,CreateActivity.class);
 			//no args: i.putExtra("settings", searchFilters);
 			startActivityForResult(i, ACTIVITY_CREATE);
-			overridePendingTransition(R.anim.in_from_top, R.anim.out_to_bottom);
+			overridePendingTransition(R.anim.slide_in_from_top, R.anim.slide_out_to_bottom);
 		}
 	}
 
@@ -118,7 +118,7 @@ public class TimelineActivity extends FragmentActivity {
 		Intent i = new Intent(this,ProfileActivity.class);
 		//no args: i.putExtra("settings", searchFilters);
 		startActivityForResult(i, ACTIVITY_PROFILE);
-		overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+		overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
 	}
 	
 	public void onProfileClick(View v){
@@ -131,7 +131,7 @@ public class TimelineActivity extends FragmentActivity {
 		Intent i = new Intent(this,ProfileActivity.class);
 		i.putExtra("user", u);
 		startActivityForResult(i, ACTIVITY_PROFILE);
-		overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+		overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
 	}
 
     @Override
