@@ -4,7 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +14,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dvictor.twitter.R;
-import com.dvictor.twitter.R.id;
-import com.dvictor.twitter.R.layout;
+import com.dvictor.twitter.fragments.ModelDialogFragment;
+import com.dvictor.twitter.listeners.OnSwipeTouchListener;
 import com.dvictor.twitter.models.Tweet;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
-	public TweetArrayAdapter(Context context, List<Tweet> objects){
-		super(context, 0, objects);
+	final FragmentActivity activity;
+	public TweetArrayAdapter(FragmentActivity activity, List<Tweet> objects){
+		super(activity, 0, objects);
+		this.activity = activity;
 	}
 
 	@Override
@@ -51,6 +56,10 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		tvBody.setText(tweet.getBody());
 		// Store the user into the image so that when they click on it, we can know which user to show profile.
 		ivProfileImage.setTag(tweet.getUser());
+		
+		// Setup Swipe Actions
+		setupSwipeActions(tvRealName,tvUserName,tvBody);
+		
 		return v;
 	}
 	
@@ -70,5 +79,30 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		}
 
 		return relativeDate;
-	}	
+	}
+	
+	/** Setup swipe actions */
+	private void setupSwipeActions(View... swipableItems){
+		for(View v : swipableItems){
+			// - Right
+			v.setOnTouchListener(new OnSwipeTouchListener(v.getContext()) {
+				  @Override
+				  public void onSwipeRight() {
+				    Toast.makeText(activity, "Right", Toast.LENGTH_SHORT).show();
+				    // If created by user, modal dialog to delete
+				    // TODO: Detect if created by user.
+				  	FragmentManager fm = activity.getSupportFragmentManager();
+				  	ModelDialogFragment alertDialog = ModelDialogFragment.newInstance("Delete?","Do you want to delete?","Yes","No", new Runnable(){
+						@Override
+						public void run() {
+							// TODO: actually implement this.
+						    Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show();
+						}
+				  	});
+				  	alertDialog.show(fm, "fragment_confirm");
+				  	// TODO: If not created by user, modal dialog to re-tweet.
+				  }
+			});
+		}
+	}
 }
